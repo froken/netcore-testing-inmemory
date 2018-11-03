@@ -8,12 +8,12 @@ namespace Todo.Database.Repositories
     {
         Task<List<TodoTask>> GetTasksAsync();
 
-        Task<TodoTask> GetTaskAsync(string id);
+        Task<TodoTask> GetTaskAsync(int id);
 
         Task<TodoTask> CreateTaskAsync(TodoTask task);
 
-        Task DeleteTaskAsync(string id);
+        Task DeleteTaskAsync(int id);
 
-        Task UpdateTaskAsync(string id, TodoTask task);
+        Task UpdateTaskAsync(int id, TodoTask task);
     }
 }

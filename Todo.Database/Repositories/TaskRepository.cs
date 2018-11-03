@@ -20,7 +20,7 @@ namespace Todo.Database.Repositories
             return _todoContext.Tasks.ToListAsync();
         }
 
-        public Task<TodoTask> GetTaskAsync(string id)
+        public Task<TodoTask> GetTaskAsync(int id)
         {
             return _todoContext.Tasks.FirstOrDefaultAsync(t => t.Id == id);
         }
@@ -32,14 +32,14 @@ namespace Todo.Database.Repositories
             return createdTask.Entity;
         }
 
-        public async Task DeleteTaskAsync(string id)
+        public async Task DeleteTaskAsync(int id)
         {
             var taskToDelete = await _todoContext.Tasks.FirstAsync(t => t.Id == id);
             _todoContext.Tasks.Remove(taskToDelete);
             await _todoContext.SaveChangesAsync();
         }
 
-        public async Task UpdateTaskAsync(string id, TodoTask task)
+        public async Task UpdateTaskAsync(int id, TodoTask task)
         {
             var taskToUpdate = await _todoContext.Tasks.FirstAsync(t => t.Id == id);
             taskToUpdate.Text = task.Text;

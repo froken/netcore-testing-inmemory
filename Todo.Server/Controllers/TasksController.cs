@@ -29,7 +29,7 @@ namespace Todo.Server.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<TodoTaskModel> Get(string id)
+        public async Task<TodoTaskModel> Get(int id)
         {
             var task = await _taskRepository.GetTaskAsync(id);
             return _mapper.Map<TodoTaskModel>(task);
@@ -43,14 +43,14 @@ namespace Todo.Server.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(string id, [FromBody]TodoTaskModel task)
+        public async Task<IActionResult> Put(int id, [FromBody]TodoTaskModel task)
         {
             await _taskRepository.UpdateTaskAsync(id, _mapper.Map<TodoTask>(task));
             return Ok();
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(string id)
+        public async Task<IActionResult> Delete(int id)
         {
             await _taskRepository.DeleteTaskAsync(id);
             return Ok();
