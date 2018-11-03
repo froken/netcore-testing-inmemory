@@ -1,4 +1,6 @@
 # .Net Core Web Api Server + InMemory Integration Tests
+[![Build Status](https://allayevtukh.visualstudio.com/Github/_apis/build/status/netcore-testing-inmemory)](https://allayevtukh.visualstudio.com/Github/_build/latest?definitionId=4)
+
 Web Server contains a basic todo controller.
 Test project runs the server with its database inmemory using Microsoft.AspNetCore.TestHost and Microsoft.EntityFrameworkCore.Sqlite.
 Test classes inherit from the base test class:
